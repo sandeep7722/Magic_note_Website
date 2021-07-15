@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+       #alarmSubmit{
+           color: rgb(14, 12, 8);
+          font-style: italic;
+          margin-left: 35%;
+          width: 30%;
+        font: display 20px;}
+        #addBtn{
+            background-color: seagreen;
+           text-decoration: black;
+           font-style: italic;
+        }
+        #bd{
+            color: rgba(11, 15, 228, 0.849);
+        }
+        #alarm{
+            color: rgb(94, 7, 233);
+        }
+        #p1{
+           margin-left: 45%;
+        }
+        #bd2{margin: 20px;
+        background-color: blue;
+    align-items: center;
+    margin-left: 25%;
+width: 60%;}
+#input1{border:solid rgb(168, 126, 126);
+    height: 10vh;
+    width: 50%;
+    border-radius: 25px 25px 25px 25px;
+    text-align: center;
+    margin-bottom: 10px;}
+    #f1{border:solid 7px blue;
+    width: 50%;
+    height: 50%;
+    padding: 1%;
+    text-align: center;
+    background: #234a3a;
+    }
+    #Message{
+        width: 100%;
+    height: 20vh;
+    word-break: break-all;
+    }
+    #save1{
+       margin-left: 40%;
+       width: 30%;
+       margin-top: 5%;
+       margin-bottom: 2%;
+       color: blueviolet;
+    }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body id="bd">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#" >Magic Notes</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    
+                </li>
+
+            </ul>
+            <button onclick="stopAudio()" type="button" style="background-color: red;">Stop Alarm</button>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" id="searchTxt" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+
+    <div class="container my-3">
+        <h1 style="color: blue;">Welcome To Magic Notes</h1>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title" style="color: crimson;">Add a note</h5>
+                <div class="form-group">
+                    <input type="text" id="note-title" placeholder="Enter title">
+                    <textarea class="form-control" id="addTxt" rows="3" placeholder="Enter Subject"></textarea>
+                </div>
+                <button class="btn btn-primary" id="addBtn">Add Note</button>
+
+            </div>
+        </div>
+        <hr>
+        <h1 style="color: darkgreen;">Your Notes</h1>
+        <hr>
+        <div id="notes" class="row container-fluid"> </div>
+    </div>
+    <audio id="myAudio">
+        
+        <source src="music1.mp3" type="audio/mpeg">
+       
+      </audio>
+    <div class="container my-3">
+        
+
+
+        <div class="my-2">
+            <ul id="defs"></ul>
+        </div>
+    </div>
+    <div class="form-group">
+                   
+
+        <p style="color:black;" >----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+        <h3 class="card-title" style="color: red;"  id="p1">Set Alarm</h1>
+            <label >Enter input in given format</label>
+            
+        <input  type="text" class="form-control" id="alarm" name="alarm"
+            placeholder="yyyy-mm-dd hh:mm:ss">
+            <p style="color: brown;">Note:You Can Set Multiple Alarm</p>
+      
+    </div>
+
+    <button id="alarmSubmit"  type="submit" class="card-title" >Save</button>
+    
+    <form method="post" name="Form" id="bd2">
+      
+        <h1 style="color: rgb(217, 221, 224);" style="margin-left: 40%;">For Notification On Mail Enter details</h1>
+    <input type="Email" name="sender" placeholder="Enter your mail id" id="input1"><br>
+    <input type="Password" name="pswd" placeholder="Password here" id="input1"><br>
+    
+    <input type="text" name="Message" placeholder="Write your message here whatever youn want on your mail-id." id="Message"><br>
+    <input type="button" value="Save" onclick ="check()" id="save1">
+    
+    
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="app2.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+</body>
+
+</html>
